@@ -14,7 +14,11 @@ sys.path.append(o_path)
 from sql import read_from_db
 from crypto.rsa_key import encrypt
 
-api_key = read_from_db('''select * from api_key where name = '{}';'''.format('poster'))[0]
+api_key = read_from_db('''select * from api_key where name = '{}';'''.format('poster'))
+if len(api_key) == 1:
+    api_key = api_key[0]
+else:
+    api_key = None
 keys = ['table', 'data', 'length', 'timestamp']
 
 
@@ -31,7 +35,9 @@ def post(table, data_list, timestamp):
         return
     sample, url = generate_sample()
     is_posted = None
-    while not is_posted:
+    if not api_key:
+        print('Post Function will be Actived after creating your api_key!!!')
+    while not is_posted and api_key:
         try:
             sample['data'] = {'table': encrypt(public_key=api_key.get('rsa'), text=table), 'data_list': data_list,
                               'length': encrypt(public_key=api_key.get('rsa'), text=str(len(data_list))),
