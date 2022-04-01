@@ -87,10 +87,12 @@ def entity_address():
         sql += generate_replace_sql_values(values=entity_info.values())
 
     sql = sql[:-1] + ';'
-    print(sql)
+    write_into_db(sql)
+    post('entity_list', data_list=entity_info_list, timestamp=int(time.time()))
 
 
 if __name__ == "__main__":
     # entity_list()
-    # entity_address()
-    get_entity_type()
+    # get_entity_type()
+    entity_address()
+

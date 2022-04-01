@@ -147,10 +147,10 @@ def analyze_staking_event():
 
 def read_from_db(sql):
     try:
-        cursor = db.cursor()
-        cursor.execute(sql)
-        db.commit()
-        data = cursor.fetchall()
+        with db.cursor() as cursor:
+            cursor.execute(sql)
+            db.commit()
+            data = cursor.fetchall()
     except:
         data = []
 
@@ -159,9 +159,9 @@ def read_from_db(sql):
 
 def write_into_db(sql):
     try:
-        cursor = db.cursor()
-        cursor.execute(sql)
-        db.commit()
+        with db.cursor() as cursor:
+            cursor.execute(sql)
+            db.commit()
     except Exception as e:
         print("error")
         print(e)

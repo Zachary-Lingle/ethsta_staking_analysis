@@ -142,15 +142,15 @@ def statistics_staking_event(timestamp):
         info['timestamp'] = timestamp
         entity_info_list.append(info)
 
+    ts_str = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(timestamp))
+    with open('../result/result_{}.json'.format(ts_str), 'w') as w_file:
+        json.dump(entity_info_list, w_file)
+
     sql = generate_replace_sql_header('deposit_status', entity_info_list[0].keys())
     for entity_info in entity_info_list:
         sql += generate_replace_sql_values(values=entity_info.values())
     sql = sql[:-1] + ';'
     write_into_db(sql=sql)
-
-    ts_str = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(timestamp))
-    with open('../result/result_{}.json'.format(ts_str), 'w') as w_file:
-        json.dump(entity_info_list, w_file)
 
     return entity_dict, entity_info_list
 
@@ -251,6 +251,4 @@ if __name__ == "__main__":
         tag_staking_address()
         _, entity_info_list = statistics_staking_event(timestamp)
         post('deposit_status', entity_info_list, timestamp)
-        address_list = save_new_address()
-        if address_list:
-            post('address_tag', address_list, timestamp)
+        save_new_address()
