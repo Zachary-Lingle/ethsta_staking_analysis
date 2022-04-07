@@ -43,6 +43,6 @@ sh ~/cmd/analysis_staking_data.sh
 ```
 
 ### Contribute
-Submit an issue or talk to us on [ethresear.ch](https://ethresear.ch/).
+Submit an issue or talk to us on [ethresear.ch](https://ethresear.ch/t/open-source-data-analytics-of-ethereum-staking-pools/12348).
 ### License
 Apache License 2.0
