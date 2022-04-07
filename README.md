@@ -1,5 +1,5 @@
 # ethsta_staking_analysis
-This repository conducts data analytics on Ethereum staking pools, aka the entities that control the validators of the beacon chain. See our post on [ethresear.ch](https://ethresear.ch/) for more details.
+This repository conducts data analytics on Ethereum staking pools, aka the entities that control the validators of the beacon chain. See our post on [ethresear.ch](https://ethresear.ch/t/open-source-data-analytics-of-ethereum-staking-pools/12348) for more details.
 ## Getting started
 ### Prerequisites
 1. Create some folders by running ```prepare.sh```.
