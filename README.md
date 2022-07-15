@@ -1,4 +1,6 @@
 # ethsta_staking_analysis
+[![gitpoap badge](https://public-api.gitpoap.io/v1/repo/Zachary-Lingle/ethsta_staking_analysis/badge)](https://www.gitpoap.io/gh/Zachary-Lingle/ethsta_staking_analysis)
+
 This repository conducts data analytics on Ethereum staking pools, aka the entities that control the validators of the beacon chain. See our post on [ethresear.ch](https://ethresear.ch/t/open-source-data-analytics-of-ethereum-staking-pools/12348) for more details.
 ## Getting started
 ### Prerequisites
